@@ -1,6 +1,12 @@
 # rosette-123-ziwei_and_gavin
 rosette-123-ziwei_and_gavin created by GitHub Classroom
 
-Problem #1 is done
+This work is from the homework assignments from Emina Torlak's CSE 507 course at the University of Washington. The assignment specifications are shown in /tex/hw1.pdf.
 
-We went on to work on Problem #7
+Of the assignments from HW1, we worked on Problems #1 and #7. The work for Problem #1 is contained in /logic/classify.rkt. The work for Problem #7 is in /graph-coloring/k-coloring.rkt. 
+
+In Problem #1, we found that the Rosette solve and verify functions could be used to determine if there was or was not a possible solution to the given propositional formula. The solve function outputs a model of a assignment that satisfies the propositional formula and returns unsat if it cannot. The verify function outputs a model of an assignment that does not satisfy the propositional formula and returns unsat if it could not find a counterexample. Thus, solve is used to determine if there is at least one interpretation that would satisfy the propositional formula. If solve returned unsat, then that means that the propositional formula is a contradiction, as there are no interpretations that can satisfy it. If solve returns a model, then we use verify to check if there is a counterexample that shows an assignment that does not satisfy the propositional formula. If verify returns a model, then there is at least one interpretation for both cases and the formula is a contingency. Otherwise, it is a tautology because there was no counterexample to show the propositional formula can end up false.
+
+In Problem #7, we first needed to create a method to fulfill the constraints that encodes an instance of a k-coloring problem into a CNF propositional formula. First, the propositional constraints needed to assert that every node is colored. To do so, we assign each node a number that represents the color that it is assigned to. The numbers are assigned by incrementing the number for each node. Then, we created a function that produces a list to assert that no neighboring node can have the same color. With those two lists, we were able to generate the encoding for a given graph that the SAT solver from solver.rkt could be used to assign colors to each node of the graph.
+
+We left Problem #7 at that point of progress. We still need to decode the results of the SAT solver into the assignment of colors to nodes.
